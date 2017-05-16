@@ -53,7 +53,7 @@ typedef enum {
 @optional
 
 /** 点击图片回调 */
-- (void)cycleScrollView:(SDCycleScrollView *)cycleScrollView didSelectItemAtIndex:(NSInteger)index;
+- (void)cycleScrollView:(SDCycleScrollView *)cycleScrollView didSelectItemImageView:(UIImageView *)itemImageView atIndex:(NSInteger)index;
 
 /** 图片滚动回调 */
 - (void)cycleScrollView:(SDCycleScrollView *)cycleScrollView didScrollToIndex:(NSInteger)index;
@@ -176,6 +176,8 @@ typedef enum {
 /** 轮播文字label对齐方式 */
 @property (nonatomic, assign) NSTextAlignment titleLabelTextAlignment;
 
+/** 滚动到指定页面*/
+- (void)scrollToIndex:(int)targetIndex;
 
 //////////////////////  清除缓存接口  //////////////////////
 
