@@ -582,9 +582,11 @@ NSString * const ID = @"cycleCell";
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    if ([self.delegate respondsToSelector:@selector(cycleScrollView:didSelectItemAtIndex:)]) {
-        [self.delegate cycleScrollView:self didSelectItemAtIndex:[self pageControlIndexWithCurrentCellIndex:indexPath.item]];
+    SDCollectionViewCell *cell = (SDCollectionViewCell *)[collectionView cellForItemAtIndexPath:indexPath];
+    if ([self.delegate respondsToSelector:@selector(cycleScrollView:didSelectItemImageView:atIndex:)]) {
+        [self.delegate cycleScrollView:self didSelectItemImageView:cell.imageView atIndex:[self pageControlIndexWithCurrentCellIndex:indexPath.item]];
     }
+    
     if (self.clickItemOperationBlock) {
         self.clickItemOperationBlock([self pageControlIndexWithCurrentCellIndex:indexPath.item]);
     }
